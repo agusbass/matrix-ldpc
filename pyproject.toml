@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-ldpc"
+version = "0.1.0"
+description = "QC-LDPC codec/simulator whose parity-check matrix, decoding schedule, and rate-matching are derived literally from the matrik-core 3D+1D Matrix Graph"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "rayalabs" }
+]
+keywords = ["ldpc", "qc-ldpc", "error-correcting-codes", "ecc", "belief-propagation", "matrix-graph"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Communications",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+sionna = ["sionna", "torch"]
+
+[project.urls]
+Homepage = "https://github.com/rayalabs/matrix-ldpc"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
